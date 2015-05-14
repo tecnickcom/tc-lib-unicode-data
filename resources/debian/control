@@ -1,0 +1,14 @@
+Source: php-tc-lib-pdf-font-data
+Maintainer: Nicola Asuni <info@tecnick.com>
+Section: php
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/tecnickcom/tc-lib-pdf-font-data
+Vcs-Git: https://github.com/tecnickcom/tc-lib-pdf-font-data.git
+
+Package: php-tc-lib-pdf-font-data
+Architecture: all
+Recommends: php5
+Description: PHP UTF-8 Fonts definitions
+ PHP library containing UTF-8 font definitions.
