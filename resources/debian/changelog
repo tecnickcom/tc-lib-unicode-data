@@ -1,5 +1,5 @@
-php-tecnickcom-tc-lib-pdf-font-data (~#VERSION#~) UNRELEASED; urgency=low
+php-tecnickcom-tc-lib-unicode-data (~#VERSION#~) UNRELEASED; urgency=low
 
-  * Please check the https://github.com/tecnickcom/tc-lib-pdf-font-data commit history
+  * Please check the https://github.com/tecnickcom/tc-lib-unicode-data commit history
 
  -- Nicola Asuni <info@tecnick.com>  ~#DATE#~

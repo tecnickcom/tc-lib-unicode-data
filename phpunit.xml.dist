@@ -12,7 +12,7 @@
 	verbose="true">
 
 	<testsuites>
-		<testsuite name="tc-lib-pdf-font-data Test Suite">
+		<testsuite name="tc-lib-unicode-data Test Suite">
 			<directory>./test</directory>
 		</testsuite>
 	</testsuites>

@@ -2,13 +2,13 @@
 #
 # @since       2015-05-14
 # @category    Library
-# @package     PdfFontData
+# @package     UnicodeData
 # @author      Nicola Asuni <info@tecnick.com>
 # @copyright   2011-2015 Nicola Asuni - Tecnick.com LTD
 # @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
-# @link        https://github.com/tecnickcom/tc-lib-pdf-font-data
+# @link        https://github.com/tecnickcom/tc-lib-unicode-data
 #
-# This file is part of tc-lib-pdf-font-data software library.
+# This file is part of tc-lib-unicode-data software library.
 # ----------------------------------------------------------------------------------------------------------------------
 
 # List special make targets that are not associated with files
@@ -21,7 +21,7 @@ OWNER=tecnickcom
 VENDOR=tecnick.com
 
 # Project name
-PROJECT=tc-lib-pdf-font-data
+PROJECT=tc-lib-unicode-data
 
 # Project version
 VERSION=`cat VERSION`
@@ -39,7 +39,7 @@ DATADIR=usr/share
 PHPHOME=${DATADIR}/php/Com/Tecnick
 
 # Default installation path for code
-LIBPATH=${PHPHOME}/Pdf/Font/Data/
+LIBPATH=${PHPHOME}/Unicode/Data/
 
 # Default installation path for documentation
 DOCPATH=${DATADIR}/doc/$(PKGNAME)/

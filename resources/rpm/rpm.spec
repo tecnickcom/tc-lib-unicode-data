@@ -7,7 +7,7 @@
 Name:      %{_package}
 Version:   %{_version}
 Release:   %{_release}%{?dist}
-Summary:   PHP library containing UTF-8 font definitions
+Summary:   PHP library containing Unicode definitions
 
 Group:     Development/Libraries
 License:   LGPLv3+
@@ -22,7 +22,7 @@ Provides:  php-composer(%{c_vendor}/%{gh_project}) = %{version}
 Provides:  php-%{gh_project} = %{version}
 
 %description
-PHP library containing UTF-8 font definitions
+PHP library containing Unicode definitions
 
 %build
 (cd %{_current_directory} && make build)
