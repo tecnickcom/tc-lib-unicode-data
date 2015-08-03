@@ -29,6 +29,31 @@ namespace Com\Tecnick\Pdf\Font\Data;
 class Arabic
 {
     /**
+     * Unicode code for ARABIC QUESTION MARK (U+061F)
+     */
+    const QUESTION_MARK = 1567;
+    
+    /**
+     * Unicode code for ARABIC LETTER LAM (U+0644)
+     */
+    const LAM = 1604;
+    
+    /**
+     * Unicode code for ARABIC LETTER HEH (U+0647)
+     */
+    const HEH = 1607;
+    
+    /**
+     * Unicode code for ARABIC SHADDA (U+0651)
+     */
+    const SHADDA = 1617;
+    
+    /**
+     * Unicode code for ARABIC LIGATURE ALLAH ISOLATED FORM (U+FDF2)
+     */
+    const LIGATURE_ALLAH_ISOLATED_FORM = 65010;
+    
+    /**
      * Arabic shape substitutions: char code => ([isolated, final, initial, medial]).
      *
      * @var array
@@ -118,10 +143,10 @@ class Arabic
      * @var array
      */
     public static $laa = array(
-        1570 =>array(65269, 65270, 65269, 65270),
-        1571 =>array(65271, 65272, 65271, 65272),
-        1573 =>array(65273, 65274, 65273, 65274),
-        1575 =>array(65275, 65276, 65275, 65276)
+        1570=>array(65269, 65270, 65269, 65270), // ALEF (U+0627) with MADDAH ABOVE (U+0653)
+        1571=>array(65271, 65272, 65271, 65272), // ALEF (U+0627) with HAMZA ABOVE (U+0654)
+        1573=>array(65273, 65274, 65273, 65274), // ALEF (U+0627) with HAMZA BELOW (U+0655)
+        1575=>array(65275, 65276, 65275, 65276)  // ALEF (U+0627)
     );
 
     /**
@@ -138,5 +163,27 @@ class Arabic
         1614=>64608, # Shadda + Fatha
         1615=>64609, # Shadda + Damma
         1616=>64610  # Shadda + Kasra
+    );
+
+    
+    /**
+     * Array of Arabic end letters
+     *
+     * @var array
+     */
+    public static $end = array(
+        1569, // HAMZAH (U+621)
+        1570, // ALEF (U+0627) with MADDAH ABOVE (U+0653)
+        1571, // ALEF (U+0627) with HAMZA ABOVE (U+0654)
+        1572, // WAW (U+0648) with HAMZA ABOVE (U+0654)
+        1573, // ALEF (U+0627) with HAMZA BELOW (U+0655)
+        1575, // ALEF (U+0627)
+        1577, // TEH MARBUTA (U+0629)
+        1583, // DAL (U+062F)
+        1584, // THAL (U+0630)
+        1585, // REH (U+0631)
+        1586, // ZAIN (U+0632)
+        1608, // WAW (U+0648)
+        1688  // JEH (U+0698)
     );
 }

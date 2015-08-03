@@ -31,6 +31,6 @@ class ConstantTest extends \PHPUnit_Framework_TestCase
     public function testConstants()
     {
         $oClass = new \ReflectionClass('\Com\Tecnick\Pdf\Font\Data\Constant');
-        $this->assertEquals(7, count($oClass->getConstants()));
+        $this->assertEquals(9, count($oClass->getConstants()));
     }
 }
