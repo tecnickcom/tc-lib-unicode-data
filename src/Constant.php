@@ -29,37 +29,47 @@ namespace Com\Tecnick\Pdf\Font\Data;
 class Constant
 {
     /**
-     * Unicode code for Left-to-Right Mark.
+     * Unicode code for LEFT-TO-RIGHT MARK (U+200E)
      */
     const LRM = 8206;
 
     /**
-     * Unicode code for Right-to-Left Mark.
+     * Unicode code for RIGHT-TO-LEFT MARK (U+200F)
      */
     const RLM = 8207;
 
     /**
-     * Unicode code for Left-to-Right Embedding.
+     * Unicode code for LEFT-TO-RIGHT EMBEDDING (U+202A)
      */
     const LRE = 8234;
 
     /**
-     * Unicode code for Right-to-Left Embedding.
+     * Unicode code for RIGHT-TO-LEFT EMBEDDING (U+202B)
      */
     const RLE = 8235;
 
     /**
-     * Unicode code for Pop Directional Format.
+     * Unicode code for POP DIRECTIONAL FORMATTING (U+202C)
      */
     const PDF = 8236;
 
     /**
-     * Unicode code for Left-to-Right Override.
+     * Unicode code for LEFT-TO-RIGHT OVERRIDE (U+202D)
      */
     const LRO = 8237;
 
     /**
-     * Unicode code for Right-to-Left Override.
+     * Unicode code for RIGHT-TO-LEFT OVERRIDE (U+202E)
      */
     const RLO = 8238;
+
+    /**
+     * Unicode code for SPACE (U+0020)
+     */
+    const SPACE = 32;
+
+    /**
+     * Unicode code for ZERO WIDTH NON-JOINER (U+200C)
+     */
+    const ZERO_WIDTH_NON_JOINER = 8204;
 }
