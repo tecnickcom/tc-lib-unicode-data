@@ -1,10 +1,10 @@
 {
-    "name": "tecnick.com/tc-lib-pdf-font-data",
-    "description": "PHP library containing UTF-8 font definitions",
+    "name": "tecnick.com/tc-lib-unicode-data",
+    "description": "PHP library containing Unicode definitions",
     "type": "library",
     "homepage": "http://www.tecnick.com",
     "license": "GNU-LGPL v3",
-    "keywords": ["tc-lib-pdf-font-data", "PDF", "font", "UTF-8"],
+    "keywords": ["tc-lib-unicode-data", "PDF", "font", "UTF-8"],
     "authors": [
         {
             "name": "Nicola Asuni",
@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4":{
-            "Com\\Tecnick\\Pdf\\Font\\Data\\": "src"
+            "Com\\Tecnick\\Unicode\\Data\\": "src"
         }
     }
 }

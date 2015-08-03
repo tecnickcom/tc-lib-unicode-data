@@ -1,13 +1,13 @@
-# tc-lib-pdf-font-data
+# tc-lib-unicode-data
 
 *Please consider supporting this project by making a donation to <paypal@tecnick.com>*
 
 * **category**    Library
-* **package**     \Com\Tecnick\Pdf\Font\Data
+* **package**     \Com\Tecnick\Unicode\Data
 * **author**      Nicola Asuni <info@tecnick.com>
 * **copyright**   2011-2015 Nicola Asuni - Tecnick.com LTD
 * **license**     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
-* **link**        https://github.com/tecnickcom/tc-lib-pdf-font-data
+* **link**        https://github.com/tecnickcom/tc-lib-unicode-data
 
 ## Description
 
@@ -84,12 +84,12 @@ Create a composer.json in your projects root-directory:
 ```json
 {
     "require": {
-        "tecnick.com/tc-lib-pdf-font-data": "dev-master"
+        "tecnick.com/tc-lib-unicode-data": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:tecnickcom/tc-lib-pdf-font-data.git"
+            "url": "git@github.com:tecnickcom/tc-lib-unicode-data.git"
         }
     ]
 }

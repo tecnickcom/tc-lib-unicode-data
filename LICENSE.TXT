@@ -1,7 +1,7 @@
 **********************************************************************
 * LICENSE
 *
-* SOFTWARE  : tc-lib-pdf-font-data
+* SOFTWARE  : tc-lib-unicode-data
 * AUTHOR    : Nicola Asuni <info@tecnick.com>
 * COPYRIGHT : 2011-2015 Nicola Asuni - Tecnick.com LTD
 **********************************************************************

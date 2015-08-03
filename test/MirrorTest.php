@@ -4,13 +4,13 @@
  *
  * @since       2011-05-23
  * @category    Library
- * @package     PdfFontData
+ * @package     UnicodeData
  * @author      Nicola Asuni <info@tecnick.com>
  * @copyright   2011-2015 Nicola Asuni - Tecnick.com LTD
  * @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
- * @link        https://github.com/tecnickcom/tc-lib-pdf-font-data
+ * @link        https://github.com/tecnickcom/tc-lib-unicode-data
  *
- * This file is part of tc-lib-pdf-font-data software library.
+ * This file is part of tc-lib-unicode-data software library.
  */
 
 namespace Test;
@@ -20,16 +20,16 @@ namespace Test;
  *
  * @since       2011-05-23
  * @category    Library
- * @package     PdfFontData
+ * @package     UnicodeData
  * @author      Nicola Asuni <info@tecnick.com>
  * @copyright   2011-2015 Nicola Asuni - Tecnick.com LTD
  * @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
- * @link        https://github.com/tecnickcom/tc-lib-pdf-font-data
+ * @link        https://github.com/tecnickcom/tc-lib-unicode-data
  */
 class MirrorTest extends \PHPUnit_Framework_TestCase
 {
     public function testMap()
     {
-        $this->assertEquals(352, count(\Com\Tecnick\Pdf\Font\Data\Mirror::$uni));
+        $this->assertEquals(352, count(\Com\Tecnick\Unicode\Data\Mirror::$uni));
     }
 }
