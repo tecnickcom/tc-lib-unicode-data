@@ -64,6 +64,26 @@ class Constant
     const RLO = 8238;
 
     /**
+     * Unicode code for LEFT-TO-RIGHT ISOLATE (U+2066)
+     */
+    const LRI = 8294;
+
+    /**
+     * Unicode code for RIGHT-TO-LEFT ISOLATE (U+2067)
+     */
+    const RLI = 8295;
+
+    /**
+     * Unicode code for FIRST STRONG ISOLATE (U+2068)
+     */
+    const FSI = 8296;
+
+    /**
+     * Unicode code for POP DIRECTIONAL ISOLATE (U+2069)
+     */
+    const PDI = 8297;
+
+    /**
      * Unicode code for SPACE (U+0020)
      */
     const SPACE = 32;
