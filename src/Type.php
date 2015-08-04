@@ -29,6 +29,61 @@ namespace Com\Tecnick\Unicode\Data;
 class Type
 {
     /**
+     * Array of Strong bidirectional character types.
+     *
+     * @var array
+     */
+    public static $strong = array(
+        'L'  => 'L',   // Left-to-Right
+        'R'  => 'R',   // Right-to-Left
+        'AL' => 'AL'   // Right-to-Left Arabic
+    );
+    
+    /**
+     * Array of Weak bidirectional character types.
+     *
+     * @var array
+     */
+    public static $weak = array(
+        'EN'  => 'EN',  // European Number
+        'ES'  => 'ES',  // European Number Separator
+        'ET'  => 'ET',  // European Number Terminator
+        'AN'  => 'AN',  // Arabic Number
+        'CS'  => 'CS',  // Common Number Separator
+        'NSM' => 'NSM', // Nonspacing Mark
+        'BN'  => 'BN'   // Boundary Neutral
+    );
+    
+    /**
+     * Array of Neutral bidirectional character types.
+     *
+     * @var array
+     */
+    public static $neutral = array(
+        'B'  => 'B',   // Paragraph Separator
+        'S'  => 'S',   // Segment Separator
+        'WS' => 'WS',  // Whitespace
+        'ON' => 'ON'   // Other Neutrals
+    );
+    
+    /**
+     * Array of Explicit formatting codes
+     *
+     * @var array
+     */
+    public static $explicit_formatting = array(
+        'LRE' => 8234, // Left-to-Right Embedding
+        'LRO' => 8237, // Left-to-Right Override
+        'RLE' => 8235, // Right-to-Left Embedding
+        'RLO' => 8238, // Right-to-Left Override
+        'PDF' => 8236, // Pop Directional Format
+        'LRI' => 8294, // Left-to-Right Isolate
+        'RLI' => 8295, // Right-to-Left Isolate
+        'FSI' => 8296, // First Strong Isolate
+        'PDI' => 8297  // Pop Directional Isolate
+    );
+    
+    /**
      * Array of Unicode types.
      *
      * @var array
