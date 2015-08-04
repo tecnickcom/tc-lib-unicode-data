@@ -100,7 +100,7 @@ class Constant
      */
 
     /**
-     * (U+2066) for LEFT-TO-RIGHT ISOLATE
+     * (U+2066) LEFT-TO-RIGHT ISOLATE
      * Treat the following text as isolated and left-to-right
      */
     const LRI = 8294;
