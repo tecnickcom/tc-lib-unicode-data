@@ -28,8 +28,11 @@ namespace Test;
  */
 class BracketTest extends \PHPUnit_Framework_TestCase
 {
-    public function testMap()
+    public function testOpenClose()
     {
-        $this->assertEquals(60, count(\Com\Tecnick\Unicode\Data\Bracket::$uni));
+        $this->assertEquals(
+            \Com\Tecnick\Unicode\Data\Bracket::$open,
+            array_flip(\Com\Tecnick\Unicode\Data\Bracket::$close)
+        );
     }
 }
