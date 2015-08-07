@@ -44,6 +44,7 @@ class Pattern
         | \xF0\x90\xA8[\x80\x90-\x93\x95-\x97\x99-\xB3]        # R
         | \xF0\x90\xA9[\x80-\x87\x90-\x98]                     # R
         | \xE2\x80[\xAB\xAE]                                   # RLE & RLO
+        | \xE2\x81\xA7                                         # RLI
         )/x";
 
     /**

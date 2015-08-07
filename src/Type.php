@@ -82,7 +82,7 @@ class Type
         'FSI' => 8296, // First Strong Isolate
         'PDI' => 8297  // Pop Directional Isolate
     );
-    
+
     /**
      * Array of Unicode types.
      *
