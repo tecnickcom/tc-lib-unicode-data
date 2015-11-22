@@ -9,6 +9,13 @@
 * **license**     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
 * **link**        https://github.com/tecnickcom/tc-lib-unicode-data
 
+## Status
+* **MASTER**: [![Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=master)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=master)
+[![Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=master&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=master)
+* **DEVELOP**: [![Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=develop)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=develop&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=develop)
+
+
 ## Description
 
 PHP library containing UTF-8 font definitions
