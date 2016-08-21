@@ -6,7 +6,7 @@
 [![Master Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=master&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=master)
 [![License](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/license)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 [![Total Downloads](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/downloads)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
-*
+
 [![Develop Branch](https://img.shields.io/badge/-develop:-gray.svg)](https://github.com/tecnickcom/tc-lib-unicode-data/tree/develop)
 [![Develop Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=develop)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=develop)
 [![Develop Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=develop&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=develop)
@@ -20,6 +20,9 @@
 * **copyright**   2011-2015 Nicola Asuni - Tecnick.com LTD
 * **license**     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
 * **link**        https://github.com/tecnickcom/tc-lib-unicode-data
+* **SRC DOC**     https://tcpdf.org/docs/srcdoc/tc-lib-unicode-data
+* **RPM**         https://bintray.com/tecnickcom/rpm/tc-lib-unicode-data
+* **DEB**         https://bintray.com/tecnickcom/deb/tc-lib-unicode-data
 
 ## Description
 
