@@ -15,6 +15,8 @@
 
 namespace Test;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Constant Test
  *
@@ -26,7 +28,7 @@ namespace Test;
  * @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
  * @link        https://github.com/tecnickcom/tc-lib-unicode-data
  */
-class ConstantTest extends \PHPUnit_Framework_TestCase
+class ConstantTest extends TestCase
 {
     public function testConstants()
     {
