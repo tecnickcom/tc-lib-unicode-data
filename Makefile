@@ -77,6 +77,9 @@ PHP=$(shell which php)
 # Composer executable (disable APC to as a work-around of a bug)
 COMPOSER=$(PHP) -d "apc.enable_cli=0" $(shell which composer)
 
+# phpDocumentor executable file
+PHPDOC=$(shell which phpDocumentor)
+
 # --- MAKE TARGETS ---
 
 # Display general help about this command
@@ -216,7 +219,7 @@ qa: ensuretarget lint test report
 # Generate various reports
 .PHONY: report
 report: ensuretarget
-	./vendor/bin/phpcpd --exclude vendor --exclude src/Encoding.php src > $(TARGETDIR)/report/phpcpd.txt
+	#./vendor/bin/phpcpd --exclude vendor --exclude src/Encoding.php src > $(TARGETDIR)/report/phpcpd.txt
 	./vendor/bin/phploc src --exclude vendor > $(TARGETDIR)/report/phploc.txt
 	./vendor/bin/pdepend --jdepend-xml=$(TARGETDIR)/report/dependencies.xml --summary-xml=$(TARGETDIR)/report/metrics.xml --jdepend-chart=$(TARGETDIR)/report/dependecies.svg --overview-pyramid=$(TARGETDIR)/report/overview-pyramid.svg --ignore=vendor ./src
 	#./vendor/bartlett/php-compatinfo/bin/phpcompatinfo --no-ansi analyser:run src/ > $(TARGETDIR)/report/phpcompatinfo.txt
