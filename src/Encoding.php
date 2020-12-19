@@ -25,9 +25,12 @@ namespace Com\Tecnick\Unicode\Data;
  * @copyright   2011-2015 Nicola Asuni - Tecnick.com LTD
  * @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
  * @link        https://github.com/tecnickcom/tc-lib-unicode-data
+ *
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  */
 class Encoding
 {
+
     /**
      * Font Encoding Maps.
      *

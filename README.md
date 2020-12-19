@@ -2,14 +2,10 @@
 *PHP library containing UTF-8 font definitions*
 
 [![Latest Stable Version](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/version)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
-[![Master Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=master)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=master)
-[![Master Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=master&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=master)
+[![Master Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=main)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=main)
+[![Master Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=main&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=main)
 [![License](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/license)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 [![Total Downloads](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/downloads)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
-
-[![Develop Branch](https://img.shields.io/badge/-develop:-gray.svg)](https://github.com/tecnickcom/tc-lib-unicode-data/tree/develop)
-[![Develop Build Status](https://secure.travis-ci.org/tecnickcom/tc-lib-unicode-data.png?branch=develop)](https://travis-ci.org/tecnickcom/tc-lib-unicode-data?branch=develop)
-[![Develop Coverage Status](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=develop&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=develop)
 
 [![Donate via PayPal](https://img.shields.io/badge/donate-paypal-87ceeb.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-unicode-data%20project)
 *Please consider supporting this project by making a donation via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-unicode-data%20project)*
@@ -17,7 +13,7 @@
 * **category**    Library
 * **package**     \Com\Tecnick\Unicode\Data
 * **author**      Nicola Asuni <info@tecnick.com>
-* **copyright**   2011-2020 Nicola Asuni - Tecnick.com LTD
+* **copyright**   2011-2021 Nicola Asuni - Tecnick.com LTD
 * **license**     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
 * **link**        https://github.com/tecnickcom/tc-lib-unicode-data
 * **SRC DOC**     https://tcpdf.org/docs/srcdoc/tc-lib-unicode-data
@@ -50,7 +46,7 @@ make help
 To install all the development dependencies:
 
 ```bash
-make build_dev
+make deps
 ```
 
 ## Running all tests
@@ -58,25 +54,10 @@ make build_dev
 Before committing the code, please check if it passes all tests using
 
 ```bash
-make qa_all
-```
-this generates the phpunit coverage report in target/coverage.
-Please check if the tests are covering all code.
-
-Generate the documentation:
-
-```bash
-make docs
+make qa
 ```
 
-Generate static analysis reports in target/report:
-
-```bash
-make reports
-```
-
-Other make options allows you to install this library globally and build an RPM package.
-Please check all the available options using `make help`.
+All artifacts are generated in the target directory.
 
 
 ## Example
