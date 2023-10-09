@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Latin.php
  *
@@ -34,32 +35,32 @@ class Latin
      * @var array
      */
     public static $substitute = array(
-        8364=>128, # Euro1
-        338=>140,  # OE
-        352=>138,  # Scaron
-        376=>159,  # Ydieresis
-        381=>142,  # Zcaron2
-        8226=>149, # bullet3
-        710=>136,  # circumflex
-        8224=>134, # dagger
-        8225=>135, # daggerdbl
-        8230=>133, # ellipsis
-        8212=>151, # emdash
-        8211=>150, # endash
-        402=>131,  # florin
-        8249=>139, # guilsinglleft
-        8250=>155, # guilsinglright
-        339=>156,  # oe
-        8240=>137, # perthousand
-        8222=>132, # quotedblbase
-        8220=>147, # quotedblleft
-        8221=>148, # quotedblright
-        8216=>145, # quoteleft
-        8217=>146, # quoteright
-        8218=>130, # quotesinglbase
-        353=>154,  # scaron
-        732=>152,  # tilde
-        8482=>153, # trademark
-        382=>158   # zcaron2
+        8364 => 128, # Euro1
+        338 => 140,  # OE
+        352 => 138,  # Scaron
+        376 => 159,  # Ydieresis
+        381 => 142,  # Zcaron2
+        8226 => 149, # bullet3
+        710 => 136,  # circumflex
+        8224 => 134, # dagger
+        8225 => 135, # daggerdbl
+        8230 => 133, # ellipsis
+        8212 => 151, # emdash
+        8211 => 150, # endash
+        402 => 131,  # florin
+        8249 => 139, # guilsinglleft
+        8250 => 155, # guilsinglright
+        339 => 156,  # oe
+        8240 => 137, # perthousand
+        8222 => 132, # quotedblbase
+        8220 => 147, # quotedblleft
+        8221 => 148, # quotedblright
+        8216 => 145, # quoteleft
+        8217 => 146, # quoteright
+        8218 => 130, # quotesinglbase
+        353 => 154,  # scaron
+        732 => 152,  # tilde
+        8482 => 153, # trademark
+        382 => 158   # zcaron2
     );
 }

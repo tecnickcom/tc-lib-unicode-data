@@ -1,4 +1,5 @@
 <?php
+
 /**
  * TypeTest.php
  *
@@ -34,22 +35,22 @@ class TypeTest extends TestCase
     {
         $this->assertEquals(3, count(\Com\Tecnick\Unicode\Data\Type::$strong));
     }
-    
+
     public function testWeak()
     {
         $this->assertEquals(7, count(\Com\Tecnick\Unicode\Data\Type::$weak));
     }
-    
+
     public function testNeutral()
     {
         $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Type::$neutral));
     }
-    
+
     public function testExplicitFormatting()
     {
         $this->assertEquals(9, count(\Com\Tecnick\Unicode\Data\Type::$explicit_formatting));
     }
-    
+
     public function testUni()
     {
         $this->assertEquals(17720, count(\Com\Tecnick\Unicode\Data\Type::$uni));

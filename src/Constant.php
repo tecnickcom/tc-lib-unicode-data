@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Constant.php
  *
@@ -131,7 +132,7 @@ class Constant
      * End the scope of the last LRI, RLI, or FSI
      */
     const PDI = 8297;
-    
+
     /*
      * Implicit Directional Marks
      * --------------------------

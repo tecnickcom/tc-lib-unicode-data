@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BracketTest.php
  *
