@@ -3,7 +3,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/version)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 ![Build](https://github.com/tecnickcom/tc-lib-unicode-data/actions/workflows/check.yml/badge.svg)
-[![Coverage](https://coveralls.io/repos/tecnickcom/tc-lib-unicode-data/badge.svg?branch=main&service=github)](https://coveralls.io/github/tecnickcom/tc-lib-unicode-data?branch=main)
+[![Coverage](https://codecov.io/gh/tecnickcom/tc-lib-unicode-data/graph/badge.svg?token=12SAG9XRFK)](https://codecov.io/gh/tecnickcom/tc-lib-unicode-data)
 [![License](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/license)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 [![Downloads](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/downloads)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 
