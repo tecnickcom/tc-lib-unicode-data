@@ -62,7 +62,7 @@ All artifacts are generated in the target directory.
 
 Examples are located in the `example` directory.
 
-Start a development server (requires PHP 5.4) using the command:
+Start a development server (requires PHP 8.0+) using the command:
 
 ```
 make server
@@ -78,15 +78,15 @@ Create a composer.json in your projects root-directory:
 ```json
 {
     "require": {
-        "tecnickcom/tc-lib-unicode-data": "dev-master"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:tecnickcom/tc-lib-unicode-data.git"
-        }
-    ]
+        "tecnickcom/tc-lib-unicode-data": "^2.0"
+    }
 }
+```
+
+Or add to an existing project with:
+
+```bash
+composer require tecnickcom/tc-lib-unicode-data ^2.0
 ```
 
 

@@ -31,7 +31,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PatternTest extends TestCase
 {
-    public function testPatterns()
+    public function testPatterns(): void
     {
         $str = 'hello world';
         $this->assertEquals(0, preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));

@@ -32,7 +32,7 @@ class Identity
     /**
      * ToUnicode map for Identity-H stream
      */
-    const CIDHMAP = <<<EOD
+    public const CIDHMAP = <<<EOD
 /CIDInit /ProcSet findresource begin
 12 dict begin
 begincmap

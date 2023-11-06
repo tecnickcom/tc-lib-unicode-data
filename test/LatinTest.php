@@ -31,8 +31,8 @@ use PHPUnit\Framework\TestCase;
  */
 class LatinTest extends TestCase
 {
-    public function testMap()
+    public function testMap(): void
     {
-        $this->assertEquals(27, count(\Com\Tecnick\Unicode\Data\Latin::$substitute));
+        $this->assertEquals(27, count(\Com\Tecnick\Unicode\Data\Latin::SUBSTITUTE));
     }
 }

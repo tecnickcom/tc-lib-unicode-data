@@ -31,8 +31,8 @@ use PHPUnit\Framework\TestCase;
  */
 class MirrorTest extends TestCase
 {
-    public function testMap()
+    public function testMap(): void
     {
-        $this->assertEquals(352, count(\Com\Tecnick\Unicode\Data\Mirror::$uni));
+        $this->assertEquals(352, count(\Com\Tecnick\Unicode\Data\Mirror::UNI));
     }
 }
