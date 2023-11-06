@@ -31,11 +31,11 @@ use PHPUnit\Framework\TestCase;
  */
 class BracketTest extends TestCase
 {
-    public function testOpenClose()
+    public function testOpenClose(): void
     {
         $this->assertEquals(
-            \Com\Tecnick\Unicode\Data\Bracket::$open,
-            array_flip(\Com\Tecnick\Unicode\Data\Bracket::$close)
+            \Com\Tecnick\Unicode\Data\Bracket::OPEN,
+            array_flip(\Com\Tecnick\Unicode\Data\Bracket::CLOSE)
         );
     }
 }

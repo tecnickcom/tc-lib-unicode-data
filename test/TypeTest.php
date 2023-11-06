@@ -31,28 +31,28 @@ use PHPUnit\Framework\TestCase;
  */
 class TypeTest extends TestCase
 {
-    public function testStrong()
+    public function testStrong(): void
     {
-        $this->assertEquals(3, count(\Com\Tecnick\Unicode\Data\Type::$strong));
+        $this->assertEquals(3, count(\Com\Tecnick\Unicode\Data\Type::STRONG));
     }
 
-    public function testWeak()
+    public function testWeak(): void
     {
-        $this->assertEquals(7, count(\Com\Tecnick\Unicode\Data\Type::$weak));
+        $this->assertEquals(7, count(\Com\Tecnick\Unicode\Data\Type::WEAK));
     }
 
-    public function testNeutral()
+    public function testNeutral(): void
     {
-        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Type::$neutral));
+        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Type::NEUTRAL));
     }
 
-    public function testExplicitFormatting()
+    public function testExplicitFormatting(): void
     {
-        $this->assertEquals(9, count(\Com\Tecnick\Unicode\Data\Type::$explicit_formatting));
+        $this->assertEquals(9, count(\Com\Tecnick\Unicode\Data\Type::EXPLICIT_FORMATTING));
     }
 
-    public function testUni()
+    public function testUni(): void
     {
-        $this->assertEquals(17720, count(\Com\Tecnick\Unicode\Data\Type::$uni));
+        $this->assertEquals(17720, count(\Com\Tecnick\Unicode\Data\Type::UNI));
     }
 }

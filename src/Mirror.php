@@ -32,11 +32,11 @@ class Mirror
     /**
      * Mirror unicode characters.
      * For information on bidi mirroring, see UAX #9:
-     * Bidirectional Algorithm, at http://www.unicode.org/unicode/reports/tr9/
+     * Bidirectional Algorithm, at http://www.unicode.org/unicode/reports/tr9/.
      *
-     * @var array
+     * @var array<int, int>
      */
-    public static $uni = array(
+    public const UNI = [
         0x0028 => 0x0029,
         0x0029 => 0x0028,
         0x003C => 0x003E,
@@ -388,6 +388,6 @@ class Mirror
         0xFF5F => 0xFF60,
         0xFF60 => 0xFF5F,
         0xFF62 => 0xFF63,
-        0xFF63 => 0xFF62
-    );
+        0xFF63 => 0xFF62,
+    ];
 }

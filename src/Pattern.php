@@ -33,7 +33,7 @@ class Pattern
      * Pattern to test RTL (Righ-To-Left) strings using regular expressions.
      * (excluding Arabic)
      */
-    const RTL = "/(
+    public const RTL = "/(
           \xD6\xBE                                             # R
         | \xD7[\x80\x83\x86\x90-\xAA\xB0-\xB4]                 # R
         | \xDF[\x80-\xAA\xB4\xB5\xBA]                          # R
@@ -52,7 +52,7 @@ class Pattern
      * Pattern to test Arabic strings using regular expressions.
      * Ref: http://www.w3.org/International/questions/qa-forms-utf-8
      */
-    const ARABIC = "/(
+    public const ARABIC = "/(
           \xD8[\x80-\x83\x8B\x8D\x9B\x9E\x9F\xA1-\xBA]  # AL
         | \xD9[\x80-\x8A\xAD-\xAF\xB1-\xBF]             # AL
         | \xDA[\x80-\xBF]                               # AL

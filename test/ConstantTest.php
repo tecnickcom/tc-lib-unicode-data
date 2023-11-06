@@ -31,9 +31,9 @@ use PHPUnit\Framework\TestCase;
  */
 class ConstantTest extends TestCase
 {
-    public function testConstants()
+    public function testConstants(): void
     {
-        $oClass = new \ReflectionClass('\Com\Tecnick\Unicode\Data\Constant');
-        $this->assertEquals(14, count($oClass->getConstants()));
+        $reflectionClass = new \ReflectionClass('\\' . \Com\Tecnick\Unicode\Data\Constant::class);
+        $this->assertEquals(14, count($reflectionClass->getConstants()));
     }
 }

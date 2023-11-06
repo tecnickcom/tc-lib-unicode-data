@@ -31,18 +31,18 @@ use PHPUnit\Framework\TestCase;
  */
 class ArabicTest extends TestCase
 {
-    public function testDiacritic()
+    public function testDiacritic(): void
     {
-        $this->assertEquals(5, count(\Com\Tecnick\Unicode\Data\Arabic::$diacritic));
+        $this->assertEquals(5, count(\Com\Tecnick\Unicode\Data\Arabic::DIACRITIC));
     }
 
-    public function testlaa()
+    public function testlaa(): void
     {
-        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Arabic::$laa));
+        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Arabic::LAA));
     }
 
-    public function testSubstitute()
+    public function testSubstitute(): void
     {
-        $this->assertEquals(76, count(\Com\Tecnick\Unicode\Data\Arabic::$substitute));
+        $this->assertEquals(76, count(\Com\Tecnick\Unicode\Data\Arabic::SUBSTITUTE));
     }
 }
