@@ -65,8 +65,8 @@ class Type
     public const NEUTRAL = [
         'B' => 'B',   // Paragraph Separator
         'S' => 'S',   // Segment Separator
-        'WS' => 'WS',  // Whitespace
-        'ON' => 'ON',   // Other Neutrals
+        'WS' => 'WS', // Whitespace
+        'ON' => 'ON', // Other Neutrals
     ];
 
     /**
