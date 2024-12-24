@@ -27,7 +27,7 @@ namespace Com\Tecnick\Unicode\Data;
  * @license     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
  * @link        https://github.com/tecnickcom/tc-lib-unicode-data
  *
- * @SuppressWarnings(PHPMD.ExcessiveClassLength)
+ * @SuppressWarnings("PHPMD.ExcessiveClassLength")
  */
 class Type
 {
