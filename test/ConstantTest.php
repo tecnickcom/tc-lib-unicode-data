@@ -34,6 +34,6 @@ class ConstantTest extends TestCase
     public function testConstants(): void
     {
         $reflectionClass = new \ReflectionClass('\\' . \Com\Tecnick\Unicode\Data\Constant::class);
-        $this->assertEquals(14, count($reflectionClass->getConstants()));
+        $this->assertEquals(14, \count($reflectionClass->getConstants()));
     }
 }

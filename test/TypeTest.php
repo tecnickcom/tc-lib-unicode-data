@@ -33,26 +33,26 @@ class TypeTest extends TestCase
 {
     public function testStrong(): void
     {
-        $this->assertEquals(3, count(\Com\Tecnick\Unicode\Data\Type::STRONG));
+        $this->assertEquals(3, \count(\Com\Tecnick\Unicode\Data\Type::STRONG));
     }
 
     public function testWeak(): void
     {
-        $this->assertEquals(7, count(\Com\Tecnick\Unicode\Data\Type::WEAK));
+        $this->assertEquals(7, \count(\Com\Tecnick\Unicode\Data\Type::WEAK));
     }
 
     public function testNeutral(): void
     {
-        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Type::NEUTRAL));
+        $this->assertEquals(4, \count(\Com\Tecnick\Unicode\Data\Type::NEUTRAL));
     }
 
     public function testExplicitFormatting(): void
     {
-        $this->assertEquals(9, count(\Com\Tecnick\Unicode\Data\Type::EXPLICIT_FORMATTING));
+        $this->assertEquals(9, \count(\Com\Tecnick\Unicode\Data\Type::EXPLICIT_FORMATTING));
     }
 
     public function testUni(): void
     {
-        $this->assertEquals(17720, count(\Com\Tecnick\Unicode\Data\Type::UNI));
+        $this->assertEquals(17720, \count(\Com\Tecnick\Unicode\Data\Type::UNI));
     }
 }

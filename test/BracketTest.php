@@ -35,7 +35,7 @@ class BracketTest extends TestCase
     {
         $this->assertEquals(
             \Com\Tecnick\Unicode\Data\Bracket::OPEN,
-            array_flip(\Com\Tecnick\Unicode\Data\Bracket::CLOSE)
+            \array_flip(\Com\Tecnick\Unicode\Data\Bracket::CLOSE)
         );
     }
 }

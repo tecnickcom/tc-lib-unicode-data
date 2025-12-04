@@ -33,7 +33,7 @@ class EncodingTest extends TestCase
 {
     public function testMap(): void
     {
-        $this->assertEquals(22, count(\Com\Tecnick\Unicode\Data\Encoding::MAP));
-        $this->assertEquals(256, count(\Com\Tecnick\Unicode\Data\Encoding::MAP['iso-8859-1']));
+        $this->assertEquals(22, \count(\Com\Tecnick\Unicode\Data\Encoding::MAP));
+        $this->assertEquals(256, \count(\Com\Tecnick\Unicode\Data\Encoding::MAP['iso-8859-1']));
     }
 }

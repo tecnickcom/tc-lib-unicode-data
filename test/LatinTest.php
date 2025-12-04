@@ -33,6 +33,6 @@ class LatinTest extends TestCase
 {
     public function testMap(): void
     {
-        $this->assertEquals(27, count(\Com\Tecnick\Unicode\Data\Latin::SUBSTITUTE));
+        $this->assertEquals(27, \count(\Com\Tecnick\Unicode\Data\Latin::SUBSTITUTE));
     }
 }

@@ -33,6 +33,6 @@ class MirrorTest extends TestCase
 {
     public function testMap(): void
     {
-        $this->assertEquals(352, count(\Com\Tecnick\Unicode\Data\Mirror::UNI));
+        $this->assertEquals(352, \count(\Com\Tecnick\Unicode\Data\Mirror::UNI));
     }
 }

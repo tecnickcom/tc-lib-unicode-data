@@ -33,6 +33,6 @@ class IdentityTest extends TestCase
 {
     public function testConstants(): void
     {
-        $this->assertEquals('a3f30375025e8570745ff463479522b6', md5(\Com\Tecnick\Unicode\Data\Identity::CIDHMAP));
+        $this->assertEquals('a3f30375025e8570745ff463479522b6', \md5(\Com\Tecnick\Unicode\Data\Identity::CIDHMAP));
     }
 }

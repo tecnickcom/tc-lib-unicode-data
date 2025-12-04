@@ -33,16 +33,16 @@ class ArabicTest extends TestCase
 {
     public function testDiacritic(): void
     {
-        $this->assertEquals(5, count(\Com\Tecnick\Unicode\Data\Arabic::DIACRITIC));
+        $this->assertEquals(5, \count(\Com\Tecnick\Unicode\Data\Arabic::DIACRITIC));
     }
 
     public function testlaa(): void
     {
-        $this->assertEquals(4, count(\Com\Tecnick\Unicode\Data\Arabic::LAA));
+        $this->assertEquals(4, \count(\Com\Tecnick\Unicode\Data\Arabic::LAA));
     }
 
     public function testSubstitute(): void
     {
-        $this->assertEquals(76, count(\Com\Tecnick\Unicode\Data\Arabic::SUBSTITUTE));
+        $this->assertEquals(76, \count(\Com\Tecnick\Unicode\Data\Arabic::SUBSTITUTE));
     }
 }
