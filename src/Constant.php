@@ -32,22 +32,22 @@ class Constant
     /*
      * Explicit Directional Embeddings
      * -------------------------------
-     * The following characters signal that a piece of text is to be treated as embeded.
+     * The following characters signal that a piece of text is to be treated as embedded.
      * For example, an English quotation in the middle of an Arabic sentence could be marked
-     * as being embeded left-to-right text. If there were a Hebrew phrase in the middle of
-     * the English quotation, that phrase could be marked as being embeded right-to-left text.
+     * as being embedded left-to-right text. If there were a Hebrew phrase in the middle of
+     * the English quotation, that phrase could be marked as being embedded right-to-left text.
      * Embeddings can be nested one inside another, and in isolates and overrides.
      */
 
     /**
      * (U+202A) LEFT-TO-RIGHT EMBEDDING
-     * Treat the following text as embeded left-to-right
+     * Treat the following text as embedded left-to-right
      */
     public const LRE = 8234;
 
     /**
      * (U+202B) RIGHT-TO-LEFT EMBEDDING
-     * Treat the following text as embeded right-to-left
+     * Treat the following text as embedded right-to-left
      */
     public const RLE = 8235;
 
