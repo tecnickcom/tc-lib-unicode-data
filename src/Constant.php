@@ -57,7 +57,7 @@ class Constant
      * The following characters allow the bidirectional character types to be overridden when
      * required for special cases, such as for part numbers. They are to be avoided wherever possible,
      * because of security concerns. For more information, see [UTR36].
-     * Directional overrides can be nested one inside another, and in embedings and isolates.
+     * Directional overrides can be nested one inside another, and in embeddings and isolates.
      */
 
     /**
@@ -87,17 +87,17 @@ class Constant
      * Explicit Directional Isolates
      * -----------------------------
      * The following characters signal that a piece of text is to be treated as directionally isolated
-     * from its surroundings. They are very similar to the explicit embeding formatting characters.
-     * However, while an embeding roughly has the effect of a strong character on the ordering of the
+     * from its surroundings. They are very similar to the explicit embedding formatting characters.
+     * However, while an embedding roughly has the effect of a strong character on the ordering of the
      * surrounding text, an isolate has the effect of a neutral like U+FFFC OBJECT REPLACEMENT CHARACTER,
      * and is assigned the corresponding display position in the surrounding text.
      * Furthermore, the text inside the isolate has no effect on the ordering of the text outside it, and vice versa.
      *
-     * In addition to allowing the embeding of strongly directional text without unduly affecting the bidirectional
+     * In addition to allowing the embedding of strongly directional text without unduly affecting the bidirectional
      * order of its surroundings, one of the isolate formatting characters also offers an extra feature:
-     * embeding text while inferring its direction heuristically from its constituent characters.
+     * embedding text while inferring its direction heuristically from its constituent characters.
      *
-     * Isolates can be nested one inside another, and in embedings and overrides.
+     * Isolates can be nested one inside another, and in embeddings and overrides.
      */
 
     /**
@@ -139,7 +139,7 @@ class Constant
      * These characters are very light-weight formatting.
      * They act exactly like right-to-left or left-to-right characters,
      * except that they do not display or have any other semantic effect.
-     * Their use is more convenient than using explicit embedings or overrides because their scope is much more local.
+     * Their use is more convenient than using explicit embeddings or overrides because their scope is much more local.
 
     /**
      * (U+200E) LEFT-TO-RIGHT MARK
