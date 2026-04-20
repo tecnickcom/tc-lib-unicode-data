@@ -18,6 +18,8 @@ If this repository helps your text-processing stack, please consider [supporting
 
 `tc-lib-unicode-data` is a data-centric package that provides Unicode lookup tables, mappings, and constants consumed by `tc-lib-unicode` and related libraries.
 
+It externalizes large Unicode datasets into a dedicated package so runtime libraries can stay focused on algorithms instead of data distribution. Versioned data updates also become easier to manage and review as Unicode standards evolve.
+
 | | |
 |---|---|
 | **Namespace** | `\Com\Tecnick\Unicode\Data` |
