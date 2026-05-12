@@ -44,13 +44,13 @@ class PatternTest extends TestCase
         $this->assertEquals(0, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));
         $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
 
-        $str = \json_decode('"\u2067"'); // RLI
+        $str = (string) \json_decode('"\u2067"'); // RLI
         $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
 
-        $str = \json_decode('"\u202B"'); // RLE
+        $str = (string) \json_decode('"\u202B"'); // RLE
         $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
 
-        $str = \json_decode('"\u202E"'); // RLO
+        $str = (string) \json_decode('"\u202E"'); // RLO
         $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
     }
 }

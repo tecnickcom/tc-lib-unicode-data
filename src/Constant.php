@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Constant.php
  *
@@ -140,8 +142,8 @@ class Constant
      * They act exactly like right-to-left or left-to-right characters,
      * except that they do not display or have any other semantic effect.
      * Their use is more convenient than using explicit embeddings or overrides because their scope is much more local.
-
-    /**
+     *
+     * /**
      * (U+200E) LEFT-TO-RIGHT MARK
      * Left-to-right zero-width character
      */

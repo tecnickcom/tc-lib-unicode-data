@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Bracket.php
  *
@@ -94,7 +96,7 @@ class Bracket
         0xFF3B => 0xFF3D, // FULLWIDTH SQUARE BRACKET
         0xFF5B => 0xFF5D, // FULLWIDTH CURLY BRACKET
         0xFF5F => 0xFF60, // FULLWIDTH WHITE PARENTHESIS
-        0xFF62 => 0xFF63,  // HALFWIDTH CORNER BRACKET
+        0xFF62 => 0xFF63, // HALFWIDTH CORNER BRACKET
     ];
 
     /**
@@ -162,6 +164,6 @@ class Bracket
         0xFF3D => 0xFF3B, // FULLWIDTH SQUARE BRACKET
         0xFF5D => 0xFF5B, // FULLWIDTH CURLY BRACKET
         0xFF60 => 0xFF5F, // FULLWIDTH WHITE PARENTHESIS
-        0xFF63 => 0xFF62,  // HALFWIDTH CORNER BRACKET
+        0xFF63 => 0xFF62, // HALFWIDTH CORNER BRACKET
     ];
 }

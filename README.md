@@ -46,7 +46,7 @@ It externalizes large Unicode datasets into a dedicated package so runtime libra
 
 ## Requirements
 
-- PHP 8.1 or later
+- PHP 8.2 or later
 - Composer
 
 ---
