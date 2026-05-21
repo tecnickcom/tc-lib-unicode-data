@@ -45,13 +45,13 @@ class Constant
      * (U+202A) LEFT-TO-RIGHT EMBEDDING
      * Treat the following text as embedded left-to-right
      */
-    public const LRE = 8234;
+    public const LRE = 0x202A;
 
     /**
      * (U+202B) RIGHT-TO-LEFT EMBEDDING
      * Treat the following text as embedded right-to-left
      */
-    public const RLE = 8235;
+    public const RLE = 0x202B;
 
     /*
      * Explicit Directional Overrides
@@ -66,13 +66,13 @@ class Constant
      * (U+202D) for LEFT-TO-RIGHT OVERRIDE
      * Force following characters to be treated as strong left-to-right characters
      */
-    public const LRO = 8237;
+    public const LRO = 0x202D;
 
     /**
      * (U+202E) RIGHT-TO-LEFT OVERRIDE
      * Force following characters to be treated as strong right-to-left characters
      */
-    public const RLO = 8238;
+    public const RLO = 0x202E;
 
     /*
      * Terminating Explicit Directional Embeddings and Overrides
@@ -83,7 +83,7 @@ class Constant
      * (U+202C) POP DIRECTIONAL FORMATTING
      * End the scope of the last LRE, RLE, RLO, or LRO whose scope has not yet been terminated
      */
-    public const PDF = 8236;
+    public const PDF = 0x202C;
 
     /*
      * Explicit Directional Isolates
@@ -106,20 +106,20 @@ class Constant
      * (U+2066) LEFT-TO-RIGHT ISOLATE
      * Treat the following text as isolated and left-to-right
      */
-    public const LRI = 8294;
+    public const LRI = 0x2066;
 
     /**
      * (U+2067) RIGHT-TO-LEFT ISOLATE
      * Treat the following text as isolated and right-to-left
      */
-    public const RLI = 8295;
+    public const RLI = 0x2067;
 
     /**
      * (U+2068) FIRST STRONG ISOLATE
      * Treat the following text as isolated and in the direction of its first
      * strong directional character that is not inside a nested isolate
      */
-    public const FSI = 8296;
+    public const FSI = 0x2068;
 
     /*
      * Terminating Explicit Directional Isolates
@@ -133,7 +133,7 @@ class Constant
      * (U+2069) POP DIRECTIONAL ISOLATE
      * End the scope of the last LRI, RLI, or FSI
      */
-    public const PDI = 8297;
+    public const PDI = 0x2069;
 
     /*
      * Implicit Directional Marks
@@ -147,19 +147,19 @@ class Constant
      * (U+200E) LEFT-TO-RIGHT MARK
      * Left-to-right zero-width character
      */
-    public const LRM = 8206;
+    public const LRM = 0x200E;
 
     /**
      * (U+200F) RIGHT-TO-LEFT MARK
      * Right-to-left zero-width non-Arabic character
      */
-    public const RLM = 8207;
+    public const RLM = 0x200F;
 
     /**
      * (U+061C) ARABIC LETTER MARK
      * Right-to-left zero-width Arabic character
      */
-    public const ALM = 1564;
+    public const ALM = 0x061C;
 
     /*
      * Other useful characters
@@ -169,10 +169,34 @@ class Constant
     /**
      * (U+0020) SPACE
      */
-    public const SPACE = 32;
+    public const SPACE = 0x20;
+
+    /**
+     * (U+00A0) NO-BREAK SPACE
+     * Type: CS (Common Separator)
+     */
+    public const NO_BREAK_SPACE = 0x00A0;
 
     /**
      * (U+200C) ZERO WIDTH NON-JOINER
      */
-    public const ZERO_WIDTH_NON_JOINER = 8204;
+    public const ZERO_WIDTH_NON_JOINER = 0x200C;
+
+    /**
+     * (U+200B) ZERO WIDTH SPACE
+     * Type: BN (Boundary Neutral)
+     */
+    public const ZERO_WIDTH_SPACE = 0x200B;
+
+    /**
+     * (U+002D) HYPHEN-MINUS
+     * Type: ES (European Number Separator)
+     */
+    public const HYPHEN = 0x002D;
+
+    /**
+     * (U+00AD) SOFT HYPHEN
+     * Type: BN (Boundary Neutral)
+     */
+    public const SOFT_HYPHEN = 0x00AD;
 }
