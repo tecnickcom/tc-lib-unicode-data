@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * autoload.php
  *
@@ -9,7 +12,7 @@
  * @package     UnicodeData
  * @author      Nicola Asuni <info@tecnick.com>
  * @copyright   2015-2026 Nicola Asuni - Tecnick.com LTD
- * @license     https://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
+ * @license     https://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE)
  * @link        https://github.com/tecnickcom/tc-lib-unicode-data
  *
  * This file is part of tc-lib-unicode-data software library.

@@ -80,9 +80,6 @@ ifeq ($(shell uname -s),Darwin)
 	SEDINPLACE=-i ''
 endif
 
-# Default port number for the example server
-PORT?=8000
-
 # PHP binary
 PHP=$(shell which php)
 
@@ -245,11 +242,6 @@ rpm:
 	--define "_configpath /$(CONFIGPATH)" \
 	-bb resources/rpm/rpm.spec
 
-## Start the development server
-.PHONY: server
-server:
-	$(PHP) -t example -S localhost:$(PORT)
-
 ## Tag this GIT version
 .PHONY: tag
 tag:
@@ -263,7 +255,12 @@ tag:
 test:
 	cp phpunit.xml.dist phpunit.xml
 	#./vendor/bin/phpunit --migrate-configuration || true
-	XDEBUG_MODE=coverage ./vendor/bin/phpunit --stderr test
+	@if php -m | grep -qiE '^(xdebug|pcov)$$'; then \
+		XDEBUG_MODE=coverage ./vendor/bin/phpunit --stderr test; \
+	else \
+		echo "WARNING: no coverage driver (xdebug/pcov) found; running tests without coverage."; \
+		./vendor/bin/phpunit --stderr --no-coverage test; \
+	fi
 
 ## Remove all installed files
 .PHONY: uninstall

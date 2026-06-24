@@ -25,7 +25,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.2"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -48,7 +48,8 @@
         "source": "https://github.com/tecnickcom/tc-lib-unicode-data"
     },
     "scripts": {
-        "test": "@php -d xdebug.mode=coverage vendor/bin/phpunit --stderr test",
+        "test": "@php vendor/bin/phpunit --stderr --no-coverage test",
+        "test:coverage": "@php -d xdebug.mode=coverage vendor/bin/phpunit --stderr test",
         "analyse": ["@analyse:src", "@analyse:test"],
         "analyse:src": "mago --config mago.src.toml analyze src",
         "analyse:test": "mago --config mago.test.toml analyze test",
