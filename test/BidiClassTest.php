@@ -100,9 +100,15 @@ class BidiClassTest extends TestCase
         $this->assertSame(BidiClass::B, Type::getBidiClass(10)); // line feed
     }
 
-    public function testGetBidiClassIsNullForExplicitOrUnmapped(): void
+    public function testGetBidiClassIsNullForExplicitFormattingCode(): void
     {
-        $this->assertNull(Type::getBidiClass(8234)); // LRE explicit formatting code
-        $this->assertNull(Type::getBidiClass(0x10FFFF)); // unmapped code point
+        $this->assertNull(Type::getBidiClass(8234)); // LRE
+        $this->assertNull(Type::getBidiClass(0x2066)); // LRI
+    }
+
+    public function testGetBidiClassForUnlistedCodePoint(): void
+    {
+        $this->assertSame(BidiClass::L, Type::getBidiClass(0x4E00)); // CJK ideograph
+        $this->assertSame(BidiClass::AL, Type::getBidiClass(0x074B)); // unassigned in the Syriac block
     }
 }

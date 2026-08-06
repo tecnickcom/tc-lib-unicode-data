@@ -52,5 +52,21 @@ class PatternTest extends TestCase
 
         $str = (string) \json_decode('"\u202E"'); // RLO
         $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
+
+        $str = (string) \json_decode('"\u061C"'); // ARABIC LETTER MARK
+        $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));
+
+        $str = (string) \json_decode('"\u08A1"'); // Arabic Extended-A
+        $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));
+
+        $str = (string) \json_decode('"\u0870"'); // Arabic Extended-B
+        $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));
+
+        $str = (string) \json_decode('"\uD83A\uDD00"'); // ADLAM CAPITAL LETTER ALIF
+        $this->assertEquals(0, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::ARABIC, $str));
+        $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
+
+        $str = (string) \json_decode('"\u0800"'); // SAMARITAN LETTER ALAF
+        $this->assertEquals(1, \preg_match(\Com\Tecnick\Unicode\Data\Pattern::RTL, $str));
     }
 }

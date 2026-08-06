@@ -92,6 +92,9 @@ PHPDOC=$(shell which phpDocumentor)
 # Mago version
 MAGOVERSION=1.43.0
 
+# Version of the Unicode Character Database used to generate the data files
+UCDVERSION=17.0.0
+
 # --- MAKE TARGETS ---
 
 # Display general help about this command
@@ -164,6 +167,12 @@ deps: ensuretarget
 	rm -rf ./vendor/*
 	($(COMPOSER) install -vvv --no-interaction)
 	curl --proto '=https' --tlsv1.2 --silent --show-error --fail --location https://carthage.software/mago.sh | bash -s -- --install-dir=./vendor/bin --version=$(MAGOVERSION)
+
+## Regenerate the UCD-derived source files (Arabic, Bracket, Mirror, Pattern, Type)
+.PHONY: gendata
+gendata:
+	$(PHP) tools/generate.php $(UCDVERSION)
+	./vendor/bin/mago fmt src
 
 ## Generate source code documentation
 .PHONY: doc
