@@ -12,7 +12,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 SHELL=/bin/bash
-.SHELLFLAGS=-o pipefail -c
+.SHELLFLAGS=-e -o pipefail -c
 
 # Project owner
 OWNER=tecnickcom
@@ -89,9 +89,6 @@ COMPOSER=$(PHP) -d "apc.enable_cli=0" $(shell which composer)
 # phpDocumentor executable file
 PHPDOC=$(shell which phpDocumentor)
 
-# Mago version
-MAGOVERSION=1.46.0
-
 # Version of the Unicode Character Database used to generate the data files
 UCDVERSION=17.0.0
 
@@ -166,7 +163,6 @@ endif
 deps: ensuretarget
 	rm -rf ./vendor/*
 	($(COMPOSER) install -vvv --no-interaction)
-	curl --proto '=https' --tlsv1.2 --silent --show-error --fail --location https://carthage.software/mago.sh | bash -s -- --install-dir=./vendor/bin --version=$(MAGOVERSION)
 
 ## Regenerate the UCD-derived source files (Arabic, Bracket, Mirror, Pattern, Type)
 .PHONY: gendata
@@ -232,7 +228,6 @@ qa: ensuretarget lint test report
 report: ensuretarget
 	#./vendor/bin/phpcpd --exclude vendor --exclude src/Encoding.php src > $(TARGETDIR)/report/phpcpd.txt
 	./vendor/bin/pdepend --jdepend-xml="$(TARGETDIR)/report/dependencies.xml" --summary-xml="$(TARGETDIR)/report/metrics.xml" --jdepend-chart="$(TARGETDIR)/report/dependecies.svg" --overview-pyramid="$(TARGETDIR)/report/overview-pyramid.svg" --ignore=vendor ./src
-	#./vendor/bartlett/php-compatinfo/bin/phpcompatinfo --no-ansi analyser:run src/ > $(TARGETDIR)/report/phpcompatinfo.txt
 
 ## Build the RPM package for RedHat-like Linux distributions
 .PHONY: rpm
@@ -266,7 +261,7 @@ tag:
 
 ## Run unit tests
 .PHONY: test
-test:
+test: ensuretarget
 	cp phpunit.xml.dist phpunit.xml
 	#./vendor/bin/phpunit --migrate-configuration || true
 	@if php -m | grep -qiE '^(xdebug|pcov)$$'; then \
