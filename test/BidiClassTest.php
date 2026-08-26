@@ -21,7 +21,7 @@ use Com\Tecnick\Unicode\Data\Type;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BidiClass enum test
+ * BidiClass Test
  *
  * @since       2026-07-17
  * @category    Library

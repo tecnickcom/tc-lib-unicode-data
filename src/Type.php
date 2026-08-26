@@ -16545,12 +16545,10 @@ class Type
     }
 
     /**
-     * Get the simple (non-explicit) bidirectional class of a Unicode code point
-     * as a typed enum case.
+     * Get the bidirectional class of a Unicode code point.
      *
-     * Returns null when the code point maps to an explicit formatting code
-     * (LRE, LRO, RLE, RLO, PDF, LRI, RLI, FSI, PDI), which is not part of the
-     * strong/weak/neutral BidiClass set.
+     * Returns null for the explicit formatting codes
+     * (LRE, LRO, RLE, RLO, PDF, LRI, RLI, FSI, PDI).
      *
      * @param int $ord Unicode code point.
      */

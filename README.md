@@ -1,6 +1,6 @@
 # tc-lib-unicode-data
 
-> Unicode data tables and constants used by the Tecnick text stack.
+> Unicode data tables, mappings and constants for PHP text processing.
 
 [![Latest Stable Version](https://poser.pugx.org/tecnickcom/tc-lib-unicode-data/version)](https://packagist.org/packages/tecnickcom/tc-lib-unicode-data)
 [![Build](https://github.com/tecnickcom/tc-lib-unicode-data/actions/workflows/check.yml/badge.svg)](https://github.com/tecnickcom/tc-lib-unicode-data/actions/workflows/check.yml)
@@ -16,9 +16,7 @@
 
 ## Overview
 
-`tc-lib-unicode-data` is a data-centric package that provides Unicode lookup tables, mappings, and constants consumed by `tc-lib-unicode` and related libraries.
-
-It externalizes large Unicode datasets into a dedicated package so runtime libraries can stay focused on algorithms instead of data distribution. Versioned data updates also become easier to manage and review as Unicode standards evolve.
+`tc-lib-unicode-data` provides the Unicode lookup tables, mappings and constants used by `tc-lib-unicode` and related libraries.
 
 | | |
 |---|---|
@@ -32,56 +30,20 @@ It externalizes large Unicode datasets into a dedicated package so runtime libra
 
 ## Features
 
-### Data Coverage
-- Unicode property and identity constants
-- Script/category mapping data
-- Bracket, mirroring, and shaping-related tables
+### Classes
 
-### Integration Role
-- Runtime dependency for higher-level Unicode processing
-- Pure data distribution, no heavy runtime logic
-- Deterministic, versioned updates
-
----
-
-## Unicode data
-
-`Arabic`, `Bracket`, `Mirror`, `Pattern` and `Type` are generated from the Unicode Character Database; `Type::UNICODE_VERSION` reports the version they derive from.
-
-| Class | UCD source | Content |
-|---|---|---|
-| `Type` | `extracted/DerivedBidiClass.txt` | Bidi_Class of every code point (UAX #9) |
-| `Pattern` | `extracted/DerivedBidiClass.txt` | Regular expressions matching right-to-left and Arabic text |
-| `Mirror` | `BidiMirroring.txt` | Bidi_Mirroring_Glyph values used by rule L4 |
-| `Bracket` | `BidiBrackets.txt` | Paired brackets used by rule N0 |
-| `Arabic` | `ArabicShaping.txt`, `UnicodeData.txt` | Joining types, presentation forms and ligatures |
-
-`Type::UNI` only lists the code points whose Bidi_Class is not `L`; `Type::getType()` resolves any code point, including the blocks whose unassigned code points default to `R`, `AL` or `ET`.
-
-```php
-\Com\Tecnick\Unicode\Data\Type::getType(0x05D0);          // 'R'
-\Com\Tecnick\Unicode\Data\Type::getBidiClass(0x0660);     // BidiClass::AN
-\Com\Tecnick\Unicode\Data\Arabic::getJoiningType(0x0628); // 'D'
-```
-
-To rebuild the tables from a newer UCD release:
-
-```bash
-make gendata UCDVERSION=17.0.0
-make qa
-```
-
----
-
-## Upgrading from 2.x
-
-- `Type::UNI` no longer contains the code points whose Bidi_Class is `L`: read it through `Type::getType()` instead of `Type::UNI[$ord] ?? $fallback`.
-- `Type::getBidiClass()` returns `BidiClass::L` for the code points that are not listed, and `null` only for the explicit formatting codes (LRE, LRO, RLE, RLO, PDF, LRI, RLI, FSI, PDI).
-- `Pattern::RTL` and `Pattern::ARABIC` are code point based (`u` modifier) and require a valid UTF-8 subject.
-- `Mirror::UNI` follows `BidiMirroring.txt`: the quotation marks U+2018, U+2019, U+201C, U+201D, U+301D and U+301E are no longer mirrored.
-- `Arabic::SUBSTITUTE` rows always hold the four `[isolated, final, initial, medial]` forms, repeating the isolated and final ones where the letter has no initial or medial form.
-- `Arabic::END` is derived from the Joining_Type property and now lists every character that does not join to the following one.
-- `Arabic::JOINING` and `Arabic::getJoiningType()` expose the Joining_Type property.
+| Class | Content |
+|---|---|
+| `Type` | Bidi_Class of every code point, with `getType()` and `getBidiClass()` |
+| `BidiClass` | Backed enum of the strong, weak and neutral bidirectional classes |
+| `Constant` | Code points of the bidirectional formatting characters and of some common separators |
+| `Pattern` | Regular expressions matching right-to-left and Arabic text |
+| `Mirror` | Mirrored form of the characters mirrored in a right-to-left context |
+| `Bracket` | Paired brackets, by opening and by closing code point |
+| `Arabic` | Joining types, presentation forms and ligatures, with `getJoiningType()` |
+| `Encoding` | Character code to glyph name maps of 22 font encodings |
+| `Latin` | Unicode to Latin1 character substitutions |
+| `Identity` | CMap stream for the Identity-H encoding |
 
 ---
 
@@ -107,7 +69,34 @@ composer require tecnickcom/tc-lib-unicode-data
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-echo md5(\Com\Tecnick\Unicode\Data\Identity::CIDHMAP);
+echo \Com\Tecnick\Unicode\Data\Type::getType(0x05D0);          // R
+echo \Com\Tecnick\Unicode\Data\Arabic::getJoiningType(0x0628); // D
+echo \Com\Tecnick\Unicode\Data\Encoding::MAP['cp1252'][128];   // Euro
+```
+
+`Type::getBidiClass()` returns the same class as a `BidiClass` enum case, and `null` for the explicit formatting codes (LRE, LRO, RLE, RLO, PDF, LRI, RLI, FSI, PDI).
+
+---
+
+## Generated data
+
+`Type`, `Pattern`, `Mirror`, `Bracket` and `Arabic` are generated from the Unicode Character Database by `tools/generate.php`; `Type::UNICODE_VERSION` reports the version they derive from.
+
+| Class | UCD source |
+|---|---|
+| `Type` | `extracted/DerivedBidiClass.txt` |
+| `Pattern` | `extracted/DerivedBidiClass.txt` |
+| `Mirror` | `BidiMirroring.txt` |
+| `Bracket` | `BidiBrackets.txt` |
+| `Arabic` | `ArabicShaping.txt`, `UnicodeData.txt` |
+
+`Type::UNI` only lists the code points whose Bidi_Class is not `L`; `Type::getType()` resolves any code point, including the blocks whose unassigned code points default to `R`, `AL` or `ET`.
+
+To rebuild the tables from a UCD release:
+
+```bash
+make gendata UCDVERSION=17.0.0
+make qa
 ```
 
 ---
