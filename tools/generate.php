@@ -34,7 +34,34 @@ const UCD_FILES = [
     'BidiBrackets.txt' => 'BidiBrackets.txt',
     'BidiMirroring.txt' => 'BidiMirroring.txt',
     'DerivedBidiClass.txt' => 'extracted/DerivedBidiClass.txt',
+    'LineBreak.txt' => 'LineBreak.txt',
 ];
+
+/**
+ * Line_Break classes stored in src/LineBreak.php: the classes that take part in
+ * ideographic line breaking.
+ */
+const LINE_BREAK_CLASSES = ['ID', 'H2', 'H3', 'CJ', 'NS', 'OP', 'CL', 'CP', 'EX', 'IS', 'QU', 'IN', 'B2'];
+
+/**
+ * Ranges whose unassigned code points default to Line_Break=ID (LineBreak.txt header).
+ */
+const LINE_BREAK_ID_DEFAULTS = [
+    [0x3400, 0x4DBF],
+    [0x4E00, 0x9FFF],
+    [0xF900, 0xFAFF],
+    [0x20000, 0x2FFFD],
+    [0x30000, 0x3FFFD],
+    [0x1F000, 0x1FAFF],
+    [0x1FC00, 0x1FFFD],
+];
+
+/**
+ * Hangul syllables: Line_Break=H2 for the LV syllables, H3 for the others.
+ */
+const HANGUL_SYLLABLE_FIRST = 0xAC00;
+const HANGUL_SYLLABLE_LAST = 0xD7A3;
+const HANGUL_SYLLABLE_T_COUNT = 28;
 
 /**
  * Long Bidi_Class property value names to the abbreviations used by this package.
@@ -81,6 +108,7 @@ writeFile(
     renderBracket($version, parseBrackets($ucd['BidiBrackets.txt']), $unicodeData['name']),
 );
 writeFile($srcDir . '/Arabic.php', renderArabic($version, $forms, $joining, $unicodeData['name']));
+writeFile($srcDir . '/LineBreak.php', renderLineBreak($version, parseLineBreak($ucd['LineBreak.txt'])));
 
 // ----------------------------------------------------------------------------------------------- UCD input
 
@@ -284,6 +312,91 @@ function parseJoiningTypes(string $content, array $category): array
 }
 
 /**
+ * Parses LineBreak.txt into the sorted and merged ranges of the classes in LINE_BREAK_CLASSES,
+ * with the default ID ranges applied and the Hangul syllables left out.
+ *
+ * @return array<int, array{int, int, string}> [first code point, last code point, class]
+ */
+function parseLineBreak(string $content): array
+{
+    $listed = [];
+
+    foreach (\explode("\n", $content) as $line) {
+        $row = fields($line);
+
+        if ($row === null || \count($row) < 2) {
+            continue;
+        }
+
+        [$first, $last] = codeRange($row[0]);
+        $listed[] = [$first, $last, $row[1]];
+    }
+
+    \usort($listed, static fn(array $a, array $b): int => $a[0] <=> $b[0]);
+
+    // the Hangul syllables alternate H2 and H3, which LineBreak::getClass() computes
+    foreach ($listed as [$first, $last, $class]) {
+        for ($code = \max($first, HANGUL_SYLLABLE_FIRST); $code <= \min($last, HANGUL_SYLLABLE_LAST); ++$code) {
+            $expected = (($code - HANGUL_SYLLABLE_FIRST) % HANGUL_SYLLABLE_T_COUNT) === 0 ? 'H2' : 'H3';
+
+            if ($class !== $expected) {
+                throw new RuntimeException(\sprintf('unexpected Line_Break of U+%04X: %s', $code, $class));
+            }
+        }
+    }
+
+    $ranges = [];
+
+    foreach ($listed as [$first, $last, $class]) {
+        if ($last < HANGUL_SYLLABLE_FIRST || $first > HANGUL_SYLLABLE_LAST) {
+            $ranges[] = [$first, $last, $class];
+        }
+    }
+
+    // unassigned code points of the default ranges
+    foreach (LINE_BREAK_ID_DEFAULTS as [$first, $last]) {
+        $next = $first;
+
+        foreach ($listed as [$from, $to]) {
+            if ($to < $next || $from > $last) {
+                continue;
+            }
+
+            if ($from > $next) {
+                $ranges[] = [$next, $from - 1, 'ID'];
+            }
+
+            $next = \max($next, $to + 1);
+        }
+
+        if ($next <= $last) {
+            $ranges[] = [$next, $last, 'ID'];
+        }
+    }
+
+    \usort($ranges, static fn(array $a, array $b): int => $a[0] <=> $b[0]);
+
+    $merged = [];
+
+    foreach ($ranges as [$first, $last, $class]) {
+        if (!\in_array($class, LINE_BREAK_CLASSES, true)) {
+            continue;
+        }
+
+        $prev = \count($merged) - 1;
+
+        if ($prev >= 0 && $merged[$prev][2] === $class && $merged[$prev][1] + 1 === $first) {
+            $merged[$prev][1] = $last;
+            continue;
+        }
+
+        $merged[] = [$first, $last, $class];
+    }
+
+    return $merged;
+}
+
+/**
  * Parses BidiMirroring.txt.
  *
  * @return array<int, int>
@@ -423,8 +536,13 @@ function sortedByKey(array $map): array
 /**
  * Renders the file and class docblocks shared by all the generated files.
  */
-function docblock(string $class, string $version, string $description, string $annotation = ''): string
-{
+function docblock(
+    string $class,
+    string $version,
+    string $description,
+    string $annotation = '',
+    string $since = '2011-05-23',
+): string {
     $extra = $annotation === '' ? '' : "\n * " . $annotation;
 
     return <<<PHP
@@ -435,7 +553,7 @@ function docblock(string $class, string $version, string $description, string $a
         /**
          * {$class}.php
          *
-         * @since       2011-05-23
+         * @since       {$since}
          * @category    Library
          * @package     UnicodeData
          * @author      Nicola Asuni <info@tecnick.com>
@@ -456,7 +574,7 @@ function docblock(string $class, string $version, string $description, string $a
          * Generated by tools/generate.php from the Unicode Character Database {$version}.
          * Do not edit manually.
          *
-         * @since       2011-05-23
+         * @since       {$since}
          * @category    Library
          * @package     UnicodeData
          * @author      Nicola Asuni <info@tecnick.com>
@@ -758,6 +876,107 @@ function mergeRanges(array $codes): array
     }
 
     return $ranges;
+}
+
+/**
+ * Renders src/LineBreak.php.
+ *
+ * @param array<int, array{int, int, string}> $ranges
+ */
+function renderLineBreak(string $version, array $ranges): string
+{
+    $rows = '';
+
+    foreach ($ranges as [$first, $last, $class]) {
+        $rows .= \sprintf("        [%s, %s, '%s'],\n", hexCode($first), hexCode($last), $class);
+    }
+
+    $classes = "'" . \implode("', '", LINE_BREAK_CLASSES) . "'";
+    $hfirst = hexCode(HANGUL_SYLLABLE_FIRST);
+    $hlast = hexCode(HANGUL_SYLLABLE_LAST);
+    $tcount = HANGUL_SYLLABLE_T_COUNT;
+    $head = docblock(
+        'LineBreak',
+        $version,
+        'Line_Break property values (UAX #14) of the classes that take part in ideographic line breaking.',
+        '',
+        '2026-10-09',
+    );
+
+    return $head . <<<PHP
+
+        class LineBreak
+        {
+            /**
+             * Version of the Unicode Character Database the table is derived from.
+             */
+            public const UNICODE_VERSION = '{$version}';
+
+            /**
+             * Line_Break classes returned by getClass().
+             *
+             * @var array<int, string>
+             */
+            public const CLASSES = [{$classes}];
+
+            /**
+             * First Hangul syllable.
+             */
+            public const HANGUL_FIRST = {$hfirst};
+
+            /**
+             * Last Hangul syllable.
+             */
+            public const HANGUL_LAST = {$hlast};
+
+            /**
+             * Number of Hangul syllables sharing the same leading consonant and vowel.
+             */
+            public const HANGUL_T_COUNT = {$tcount};
+
+            /**
+             * Line_Break class of the code points outside the Hangul syllables, as
+             * [first code point, last code point, class], sorted by code point.
+             *
+             * @var array<int, array{int, int, string}>
+             */
+            public const RANGES = [
+        {$rows}    ];
+
+            /**
+             * Get the Line_Break class of a Unicode code point, or '' when it is not one of CLASSES.
+             *
+             * @param int \$ord Unicode code point.
+             */
+            public static function getClass(int \$ord): string
+            {
+                if (\$ord >= self::HANGUL_FIRST && \$ord <= self::HANGUL_LAST) {
+                    return ((\$ord - self::HANGUL_FIRST) % self::HANGUL_T_COUNT) === 0 ? 'H2' : 'H3';
+                }
+
+                \$low = 0;
+                \$high = \\count(self::RANGES) - 1;
+                while (\$low <= \$high) {
+                    \$mid = (\$low + \$high) >> 1;
+                    [\$first, \$last, \$class] = self::RANGES[\$mid] ?? [0, -1, ''];
+                    if (\$ord < \$first) {
+                        \$high = \$mid - 1;
+                        continue;
+                    }
+
+                    if (\$ord > \$last) {
+                        \$low = \$mid + 1;
+                        continue;
+                    }
+
+                    return \$class;
+                }
+
+                return '';
+            }
+        }
+
+        PHP;
 }
 
 /**

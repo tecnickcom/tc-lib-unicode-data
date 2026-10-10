@@ -164,7 +164,7 @@ deps: ensuretarget
 	rm -rf ./vendor
 	($(COMPOSER) install -vvv --no-interaction)
 
-## Regenerate the UCD-derived source files (Arabic, Bracket, Mirror, Pattern, Type)
+## Regenerate the UCD-derived source files (Arabic, Bracket, LineBreak, Mirror, Pattern, Type)
 .PHONY: gendata
 gendata:
 	$(PHP) tools/generate.php $(UCDVERSION)
